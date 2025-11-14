@@ -1,137 +1,321 @@
-<!DOCTYPE html>
-
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>VGS SEA FOODS</title>
-<meta content="VGS SEA FOODS Frozen Seafood Delivery Service" name="description"/>
-<link href="https://fonts.googleapis.com/css2?family=Marcellus+SC&amp;display=swap" rel="stylesheet"/>
-<style>
-    :root{
-      --bg-gradient: linear-gradient(180deg, #001f3f, #00304e, #004b75, #005f8c, #0077b6);
-      --card:#002b5b; --accent:#00b4d8; --muted:#caf0f8; --white:#f8fafc;
-      --radius:14px; --glass: rgba(255,255,255,0.08);
-      font-family: 'Poppins', system-ui, sans-serif;
-    }
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VGS SEA FOODS</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <style>
     body {
-      margin: 0;
-      background: var(--bg-gradient);
-      color: var(--white);
-      background-attachment: fixed;
-      background-size: cover;
-      overflow-x: hidden;
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(180deg,#013a63 0%, #005f8c 45%, #0077b6 100%);
+      color: #f6fbff;
     }
-    .container { max-width: 1100px; margin: auto; padding: 32px; }
 
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 16px 32px;
-      animation: fadeInDown 1s ease;
-      background: rgba(0, 0, 0, 0.3);
-      border-radius: 20px;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 4px 30px rgba(0,0,0,0.5);
+    /* Header Logo */
+    .brand-logo {
+      height: 85px;
+      width: auto;
+      border-radius: 12px;
+      border: 2px solid rgba(255,255,255,0.18);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.45);
     }
-    .logo img {
-      height: 80px;
-      border-radius: 50%;
-      border: 2px solid rgba(255,255,255,0.3);
-      box-shadow: 0 0 20px rgba(0,180,216,0.7);
-      animation: float 3s ease-in-out infinite;
+
+    .hero-text {
+      color: #e6fbff;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
-    .site-title {
-      font-family: 'Marcellus SC', serif;
-      font-size: 48px;
-      font-weight: bold;
-      color: #ade8f4;
-      text-shadow: 0 0 12px rgba(0,180,216,0.9), 0 0 25px rgba(0,119,182,0.8);
-      letter-spacing: 3px;
-      margin: 0;
+
+    /* Category Title */
+    .category-title {
+      color: #e0fbfc;
       text-align: center;
-      flex: 1;
+      margin-top: 60px;
+      margin-bottom: 25px;
+      text-transform: uppercase;
+      border-bottom: 2px solid #00c2d1;
+      padding-bottom: 8px;
+      display: inline-block;
+      font-size: 24px;
     }
-    .location {
-      font-size: 18px;
-      text-align: right;
+
+    /* Item Cards */
+    .sea-card {
+      background: linear-gradient(180deg,#003b6f,#001f3f);
+      border-radius: 12px;
+      padding: 15px;
+      text-align: center;
+      color: #dff8ff;
+      transition: .3s;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
     }
-    .location a {
-      color: #00b4d8;
-      text-decoration: none;
-      font-weight: bold;
+    .sea-card:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 6px 35px rgba(0,255,255,0.4);
     }
-    .location a:hover {
-      text-decoration: underline;
+    .sea-card img {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 12px;
+      border: 3px solid #0096c7;
+      object-fit: cover;
+      height: 180px;
     }
-    nav { margin-top: 10px; text-align: center; }
-    nav a { color: var(--white); text-decoration: none; margin: 0 18px; transition: color 0.3s; font-weight: bold; }
-    nav a:hover { color: var(--accent); }
 
-    .hero { text-align: center; padding: 80px 0 40px; animation: fadeIn 1.4s ease; }
-    .hero h1 { font-size: 48px; color: #bde0fe; text-shadow: 0 4px 15px rgba(0,0,0,0.6); animation: classicGlow 5s ease-in-out infinite; text-transform: uppercase; }
-    .hero p { color: var(--muted); font-size: 20px; }
-    .hero .about-line { color: #fff; font-size: 18px; opacity: 0.95; }
+    .footer {
+      padding: 20px 0;
+      text-align: center;
+      color: #cbeaf4;
+    }
 
-    h2.category { text-align:center; color:#e0fbfc; margin-top:60px; border-bottom:2px solid #00b4d8; display:inline-block; padding-bottom:8px; animation: fadeIn 1s ease; text-transform: uppercase; }
-
-    .items { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin-top: 20px; }
-    .item { background: linear-gradient(180deg, #003b6f, #001f3f); border-radius: var(--radius); padding: 20px; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.5); transition: transform .3s, box-shadow .3s; }
-    .item:hover { transform: translateY(-8px) scale(1.03); box-shadow: 0 6px 35px rgba(0,255,255,0.4); }
-    .item img { width: 100%; border-radius: var(--radius); margin-bottom: 12px; border: 3px solid #0096c7; }
-
-    footer { text-align:center; color: var(--muted); margin-top: 60px; padding: 20px 0; border-top: 1px solid rgba(255,255,255,0.2); text-transform: uppercase; }
-
-    @keyframes fadeIn { from{opacity:0;} to{opacity:1;} }
-    @keyframes fadeInDown { from{opacity:0; transform:translateY(-30px);} to{opacity:1; transform:none;} }
-    @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
-    @keyframes classicGlow { 0%,100% { opacity: 0.9; text-shadow: 0 0 5px #0096c7, 0 0 10px #00b4d8; } 50% { opacity: 1; text-shadow: 0 0 25px #48cae4, 0 0 50px #0077b6; } }
   </style>
 </head>
+
 <body>
-<div class="container">
-<header>
-<div class="logo"><img alt="VGS SEA FOODS Logo" src="images/VGS.JPEG"/></div>
-<h1 class="site-title">VGS SEA FOODS</h1>
-<div class="location">📍 <a href="https://maps.app.goo.gl/M8ATCKz1EbTEjHbi8" target="_blank">Find Us On Google Maps</a></div>
-</header>
-<nav><a href="#home">HOME</a><a href="#items">FROZEN ITEMS</a><a href="#contact">CONTACT</a></nav>
-<section class="hero" id="home">
-<h1>PREMIUM FROZEN SEAFOOD DELIVERED TO YOUR DOORSTEP</h1>
-<p>Freshness of the ocean, frozen at peak quality — VGS Sea Foods brings the sea to your table.</p>
-<p class="about-line">SERVING SINCE 2012 — DELIVERING PREMIUM FROZEN SEAFOOD CONTINUOUSLY TO OVER 100+ REGULAR HOTEL CLIENTS INCLUDING <strong>BEIJING BITES (30+ OUTLETS)</strong>, <strong>CHUNG WAH</strong>, <strong>SHANGHAI COURT</strong>, AND MANY MORE ESTEEMED RESTAURANTS ACROSS THE REGION.</p>
+
+<!-- HEADER -->
+<nav class="navbar navbar-expand-lg navbar-dark py-3">
+  <div class="container">
+
+    <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+      <img src="images/VGS.JPEG" class="brand-logo" alt="VGS SEA FOODS Logo">
+      <span class="fw-bold fs-4">VGS SEA FOODS</span>
+    </a>
+
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navMenu" class="collapse navbar-collapse justify-content-end">
+      <ul class="navbar-nav gap-2 fw-semibold">
+        <li class="nav-item"><a class="nav-link" href="#items">Frozen Items</a></li>
+        <li class="nav-item"><a class="nav-link" href="#why">Why Choose Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="#clients">Clients</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="container text-center py-5">
+  <h2 class="hero-text fw-bold">Premium Quality — Frozen at Peak Freshness</h2>
+  <p class="mt-3 text-light">
+    VGS Sea Foods has been supplying premium frozen seafood to hotels and restaurants since 2012.
+    We freeze at peak to preserve texture, flavour and nutrients — trusted by 100+ regular clients.
+  </p>
 </section>
-<section id="items">
-<h2 class="category">PRAWNS</h2>
-<div class="items">
-<div class="item"><img alt="King Prawns" src="images/KING PRAWNS.png"/><h3>KING PRAWNS</h3><p>Large, flavorful king prawns — frozen for freshness.</p></div>
-<div class="item"><img alt="Big Prawns" src="images/BIG PRAWNS.png"/><h3>BIG PRAWNS</h3><p>Succulent big prawns perfect for grilling and curries.</p></div>
-<div class="item"><img alt="Rice Prawns" src="images/RICE PRAWNS.png"/><h3>RICE PRAWNS</h3><p>Frozen rice prawns ideal for stir-fries and soups.</p></div>
-<div class="item"><img alt="31/40 Grade Shrimps" src="images/31-40.png"/><h3>31/40 GRADE SHRIMPS</h3><p>Premium 31/40 grade shrimps — juicy and frozen for lasting freshness.</p></div>
-</div>
-<h2 class="category">FISH</h2>
-<div class="items">
-<div class="item"><img alt="Tilapia" src="images/tilapia.png"/><h3>TILAPIA</h3><p>Frozen tilapia fillets — mild flavor and versatile for all recipes.</p></div>
-<div class="item"><img alt="Basa Fish" src="images/BASA.png"/><h3>BASA FISH</h3><p>Soft-textured basa fish fillets — frozen and ready to cook.</p></div>
-<div class="item"><img alt="Indian Basa" src="images/INDIAN BASA.png"/><h3>INDIAN BASA</h3><p>Locally sourced Indian basa — fresh taste preserved by freezing.</p></div>
-<div class="item"><img alt="Seer Fish" src="images/SEER FISH.png"/><h3>SEER FISH</h3><p>Frozen seer fish steaks — rich in flavor and omega-3.</p></div>
-<div class="item"><img alt="Fish Finger" src="images/fish-finger.png"/><h3>FISH FINGER</h3><p>Crispy golden fish fingers — a quick and tasty seafood snack.</p></div>
-</div>
-<h2 class="category">CRABS &amp; OTHERS</h2>
-<div class="items">
-<div class="item"><img alt="Crab Meat" src="images/crab-meat.png"/><h3>CRAB MEAT</h3><p>Pure crab meat — cleaned, frozen, and packed for convenience.</p></div>
-<div class="item"><c:\users\admin\desktop\vgs\crab-meat.png"><h3>LIVE CRAB</h3><p>Fresh live crabs — frozen instantly to retain flavor and texture.</p></c:\users\admin\desktop\vgs\crab-meat.png"></div>
-<div class="item"><img alt="Squid" src="images/frozen-squid.png"/><h3>SQUID</h3><p>Freshly frozen squid — tender and ideal for rings or curries.</p></div>
-</div>
+
+<!-- ITEMS -->
+<section id="items" class="container">
+
+  <!-- PRAWNS -->
+  <h2 class="category-title">Prawns</h2>
+  <div class="row g-4">
+    <!-- card -->
+    <div class="col-md-3 col-sm-6">
+      <div class="sea-card">
+        <img src="images/KING PRAWNS.png" alt="">
+        <h5 class="fw-bold">King Prawns</h5>
+        <p>Large, flavorful king prawns — frozen for freshness.</p>
+      </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6">
+      <div class="sea-card">
+        <img src="images/BIG PRAWNS.png" alt="">
+        <h5 class="fw-bold">Big Prawns</h5>
+        <p>Perfect for grilling & curries.</p>
+      </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6">
+      <div class="sea-card">
+        <img src="images/RICE PRAWNS.png" alt="">
+        <h5 class="fw-bold">Rice Prawns</h5>
+        <p>Ideal for stir-fries & soups.</p>
+      </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6">
+      <div class="sea-card">
+        <img src="images/31-40.png" alt="">
+        <h5 class="fw-bold">31/40 Grade Shrimps</h5>
+        <p>Juicy and frozen for lasting freshness.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FISH -->
+  <h2 class="category-title">Fish</h2>
+  <div class="row g-4">
+
+    <div class="col-md-3 col-sm-6">
+      <div class="sea-card">
+        <img src="images/tilapia.png" alt="">
+        <h5 class="fw-bold">Tilapia</h5>
+        <p>Mild flavor & versatile.</p>
+      </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6">
+      <div class="sea-card">
+        <img src="images/BASA.png" alt="">
+        <h5 class="fw-bold">Basa Fish</h5>
+        <p>Soft-textured & ready to cook.</p>
+      </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6">
+      <div class="sea-card">
+        <img src="images/INDIAN BASA.png" alt="">
+        <h5 class="fw-bold">Indian Basa</h5>
+        <p>Fresh taste preserved by freezing.</p>
+      </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6">
+      <div class="sea-card">
+        <img src="images/SEER FISH.png" alt="">
+        <h5 class="fw-bold">Seer Fish</h5>
+        <p>Rich in flavor & omega-3.</p>
+      </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6">
+      <div class="sea-card">
+        <img src="images/fish-finger.png" alt="">
+        <h5 class="fw-bold">Fish Finger</h5>
+        <p>Crispy seafood snack.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CRABS -->
+  <h2 class="category-title">Crabs & Others</h2>
+  <div class="row g-4">
+
+    <div class="col-md-4 col-sm-6">
+      <div class="sea-card">
+        <img src="images/CRAB MEAT.png" alt="">
+        <h5 class="fw-bold">Crab Meat</h5>
+        <p>Pure meat — cleaned & frozen.</p>
+      </div>
+    </div>
+
+    <div class="col-md-4 col-sm-6">
+      <div class="sea-card">
+        <img src="images/CRAB.png" alt="">
+        <h5 class="fw-bold">Live Crab</h5>
+        <p>Fresh crabs frozen instantly.</p>
+      </div>
+    </div>
+
+    <div class="col-md-4 col-sm-6">
+      <div class="sea-card">
+        <img src="images/frozen-squid.png" alt="">
+        <h5 class="fw-bold">Squid</h5>
+        <p>Tender & perfect for rings.</p>
+      </div>
+    </div>
+
+  </div>
+
 </section>
-<footer id="contact">
-<p>📞 CONTACT US AT <strong>+91 7353322694</strong> | <strong>+91 8904445854</strong> | <strong>+91 8722027704</strong> | ✉️ VGSSEAFOOD@GMAIL.COM</p>
-<p>© <span id="year"></span> VGS SEA FOODS — OCEAN FRESH, FROZEN PERFECTLY.</p>
-</footer>
+
+<!-- WHY CHOOSE US -->
+<section id="why" class="container text-center py-5">
+  <h3 class="text-uppercase fw-bold mb-4">Why Choose Us</h3>
+
+  <div class="row g-4">
+
+    <div class="col-md-3 col-6">
+      <div class="p-3 bg-dark rounded">
+        <h5 class="text-info fw-bold">Trusted Since 2012</h5>
+        <p class="small">Supplying 100+ hotels consistently.</p>
+      </div>
+    </div>
+
+    <div class="col-md-3 col-6">
+      <div class="p-3 bg-dark rounded">
+        <h5 class="text-info fw-bold">Quality First</h5>
+        <p class="small">Frozen at peak freshness.</p>
+      </div>
+    </div>
+
+    <div class="col-md-3 col-6">
+      <div class="p-3 bg-dark rounded">
+        <h5 class="text-info fw-bold">Reliable Delivery</h5>
+        <p class="small">On-time, every time.</p>
+      </div>
+    </div>
+
+    <div class="col-md-3 col-6">
+      <div class="p-3 bg-dark rounded">
+        <h5 class="text-info fw-bold">Hassle Free</h5>
+        <p class="small">Easy ordering process.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Clients -->
+<section id="clients" class="container text-center py-5">
+  <h3 class="text-uppercase fw-bold mb-4">Our Clients</h3>
+
+  <div class="row justify-content-center g-4">
+    <div class="col-6 col-md-3">
+      <img src="images/BEIJING BITES.PNG" class="img-fluid p-2 bg-dark rounded" alt="">
+    </div>
+    <div class="col-6 col-md-3">
+      <img src="images/CHUNG WAH.PNG" class="img-fluid p-2 bg-dark rounded" alt="">
+    </div>
+    <div class="col-6 col-md-3">
+      <img src="images/SHANGHAI COURT.PNG" class="img-fluid p-2 bg-dark rounded" alt="">
+    </div>
+    <div class="col-6 col-md-3">
+      <img src="images/AUNTIC FUNG'S.PNG" class="img-fluid p-2 bg-dark rounded" alt="">
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="container text-center py-5">
+  <h3 class="text-uppercase fw-bold mb-3">Contact</h3>
+
+  <p class="fw-bold fs-5">📞 Phone Numbers</p>
+  <p>
+    <a href="tel:+917353322694" class="btn btn-outline-light btn-sm m-1">+91 7353322694</a>
+    <a href="tel:+918904445854" class="btn btn-outline-light btn-sm m-1">+91 8904445854</a>
+    <a href="tel:+918722027704" class="btn btn-outline-light btn-sm m-1">+91 8722027704</a>
+  </p>
+
+  <p class="fw-bold fs-5 mt-4">✉️ Email</p>
+  <a href="mailto:vgsseafood@gmail.com" class="text-info fw-bold fs-6">vgsseafood@gmail.com</a>
+
+  <div class="mt-4">
+    <iframe src="https://www.google.com/maps?q=VGS%20SEA%20FOODS&output=embed"
+      width="100%" height="300" style="border:0; border-radius:12px;"></iframe>
+  </div>
+
+</section>
+
+<!-- Footer -->
+<div class="footer bg-dark">
+  © 2025 VGS Sea Foods — All Rights Reserved
 </div>
-<script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
